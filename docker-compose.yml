@@ -1,0 +1,8 @@
+version: '3.9'
+
+services:
+  account-api:
+    image: account.api
+    build:
+      context: .
+      dockerfile: src/Account.API/Dockerfile
