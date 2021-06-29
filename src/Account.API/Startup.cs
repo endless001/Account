@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Account.API.Data;
 using Account.API.Grpc;
+using Account.API.Infrastructure.Filters;
 using Account.API.Infrastructure.Mapping;
 using Account.API.Services;
 using HealthChecks.UI.Client;
@@ -37,7 +38,13 @@ namespace Account.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+
+
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(typeof(HttpGlobalExceptionFilter));
+                options.Filters.Add(typeof(ValidateModelStateFilter));
+            });
             services.AddDbContextPool<AccountDbContext>(options =>
              options.UseMySql(Configuration.GetValue<string>("ConnectionString"),
                          new MySqlServerVersion(new Version(8, 0, 16)),
