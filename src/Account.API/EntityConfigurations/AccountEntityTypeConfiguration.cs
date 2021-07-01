@@ -1,7 +1,8 @@
 ﻿using Account.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Account.API.Extensions;
+using Account.API.Infrastructure.Extensions;
+
 namespace Account.API.EntityConfigurations
 {
     public class AccountEntityTypeConfiguration : IEntityTypeConfiguration<AccountEntity>

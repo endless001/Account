@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Account.API.Data;
 using Account.API.Grpc;
 using Account.API.Infrastructure.Filters;
-using Account.API.Infrastructure.Mapping;
 using Account.API.Services;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -36,9 +35,8 @@ namespace Account.API
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
-
 
             services.AddControllers(options =>
             {
@@ -56,7 +54,6 @@ namespace Account.API
             services.AddHealthChecks().AddCheck("self", () => HealthCheckResult.Healthy());
             services.AddScoped<IAccountService, AccountService>();
             services.AddGrpc();
-            services.AddAutoMapper(typeof(MappingProfile).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

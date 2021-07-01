@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Account.API.Extensions
+namespace Account.API.Infrastructure.Extensions
 {
     public static class EncryptionExtensions
     {
