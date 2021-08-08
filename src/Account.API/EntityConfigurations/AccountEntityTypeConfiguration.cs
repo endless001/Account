@@ -15,6 +15,7 @@ namespace Account.API.EntityConfigurations
             builder.Property(p => p.Password).HasConversion(
                val => val.Encrypt(),
                val => val.Decrypt());
+
         }
     }
 }

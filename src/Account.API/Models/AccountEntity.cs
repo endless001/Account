@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace Account.API.Models
 {
@@ -14,7 +12,8 @@ namespace Account.API.Models
         public int Sex { get; set; }
         public string Tel { get; set; }
         public string Email { get; set; }
+        [Encrypted]
         public string Password { get; set; }
- 
+
     }
 }
